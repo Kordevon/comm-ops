@@ -1,0 +1,23 @@
+version: '3'
+services:
+  int_pub_1:
+    build: .
+    container_name: int_pub_1
+    command: ["1", "/int_1"]
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - ros_net
+
+  int_pub_2:
+    build: .
+    container_name: int_pub_2
+    command: ["2", "/int_2"]
+    environment:
+      - ROS_DOMAIN_ID=0
+    networks:
+      - ros_net
+
+networks:
+  ros_net:
+    driver: bridge
